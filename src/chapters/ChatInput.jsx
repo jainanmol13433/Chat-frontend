@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import styled from 'styled-components'
 import {Send} from '@styled-icons/material-rounded/Send'
 const ChatInput = ({handleSendMessage}) => {
+  const proxy=process.env.PROXY;
   const [msgs,setmsgs]=useState("")
   const sendMessage=(e)=>{
     e.preventDefault()
