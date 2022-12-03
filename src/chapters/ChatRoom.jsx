@@ -7,7 +7,6 @@ import Chat from './Chat'
 import Welcomes from './Welcomes'
 import {io} from 'socket.io-client'
 const ChatRoom = () => {
-  const proxy=process.env.PROXY;
   const socket=useRef()
   const navigate=useNavigate()
   const [friends,setfriends]=useState([])
@@ -29,6 +28,7 @@ const ChatRoom = () => {
   
   useEffect(()=>{
     if(user){
+      const proxy=process.env.PROXY;
       socket.current=io(`${proxy}`,{
         transports:['polling','websocket'],
       })
@@ -41,6 +41,7 @@ const ChatRoom = () => {
   useEffect(()=>{
     async function func(){
     if(user){
+      const proxy=process.env.PROXY;
       const data=await axios.get(`${proxy}/allusers/${user._id}`)
       setfriends(data.data)
     }
