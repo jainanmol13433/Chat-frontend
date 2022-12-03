@@ -14,7 +14,7 @@ const ChatRoom = () => {
   const [Currentchat,setCurrentchat]=useState(undefined)
   const [load,setload]=useState(false)
   useEffect(()=>{
-    async function func(){
+    async function func(navigate){
     if(!localStorage.getItem("user")){
       navigate('/login')
     }
