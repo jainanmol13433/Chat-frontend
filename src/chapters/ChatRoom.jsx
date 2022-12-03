@@ -7,6 +7,7 @@ import Chat from './Chat'
 import Welcomes from './Welcomes'
 import {io} from 'socket.io-client'
 const ChatRoom = () => {
+  let navigate = useNavigate()
   const socket=useRef()
   const [friends,setfriends]=useState([])
   const [user,setuser]=useState(undefined)
@@ -15,7 +16,7 @@ const ChatRoom = () => {
   useEffect(()=>{
     async function func(){
     if(!localStorage.getItem("user")){
-      useNavigate('/login')
+      navigate('/login')
     }
     else{
       setuser(await JSON.parse(localStorage.getItem("user")))
