@@ -15,9 +15,8 @@ const Register = () => {
    const handleSubmit=async (e)=>{
   e.preventDefault()
     if(validation()){
-      const proxy=process.env.PROXY;
       const {Username,Email,Password}=keys;
-      const {data}=await axios.post(`${proxy}/register`,{
+      const {data}=await axios.post(`/register`,{
         Username,
         Email,
         Password
