@@ -7,13 +7,14 @@ import ChatInput from './ChatInput'
 import axios from 'axios'
 import {v4 as uuidv4} from 'uuid'
 const Chat = ({user,Currentchat,socket}) => {
+  const proxy=process.env.PROXY;
   const scrollRef=useRef()
   const [message,setmessage]=useState([]);
   const [msgRecived,setmsgRecived]=useState(null)
   useEffect(()=>{
     if(Currentchat){
    const func=async()=>{
-    const msg=await axios.post('/getmessage',{
+    const msg=await axios.post(`${proxy}/getmessage`,{
       from:user._id,
       to:Currentchat._id,
     })
@@ -29,7 +30,7 @@ const Chat = ({user,Currentchat,socket}) => {
    navigate('/login')
    }
    const handleSendMessage=async (msg)=>{
-    await axios.post('/messageadd',{
+    await axios.post(`${proxy}/messageadd`,{
       from:user._id,
       to:Currentchat._id,
       message:msg
