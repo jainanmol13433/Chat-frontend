@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault()
     if(validation()){
       const {Username,Password}=keys;
-      const {data}=await axios.post(`/login`,{
+      const {data}=await axios.post(`/api/login`,{
         Username,
         Password
       })
