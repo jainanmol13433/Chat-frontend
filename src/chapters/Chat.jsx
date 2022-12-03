@@ -13,7 +13,7 @@ const Chat = ({user,Currentchat,socket}) => {
   useEffect(()=>{
     if(Currentchat){
    const func=async()=>{
-    const msg=await axios.post(`/api/getmessage`,{
+    const msg=await axios.post(`https://chatset.onrender.com/getmessage`,{
       from:user._id,
       to:Currentchat._id,
     })
@@ -29,7 +29,7 @@ const Chat = ({user,Currentchat,socket}) => {
    navigate('/login')
    }
    const handleSendMessage=async (msg)=>{
-    await axios.post(`/api/messageadd`,{
+    await axios.post(`https://chatset.onrender.com/messageadd`,{
       from:user._id,
       to:Currentchat._id,
       message:msg
