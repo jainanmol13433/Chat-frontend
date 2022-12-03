@@ -16,9 +16,8 @@ const Login = () => {
   const handleSubmit=async (e)=>{
     e.preventDefault()
     if(validation()){
-      const proxy=process.env.PROXY;
       const {Username,Password}=keys;
-      const {data}=await axios.post(`${proxy}/login`,{
+      const {data}=await axios.post(`/login`,{
         Username,
         Password
       })
