@@ -13,8 +13,7 @@ const Chat = ({user,Currentchat,socket}) => {
   useEffect(()=>{
     if(Currentchat){
    const func=async()=>{
-     const proxy=process.env.PROXY;
-    const msg=await axios.post(`${proxy}/getmessage`,{
+    const msg=await axios.post(`/getmessage`,{
       from:user._id,
       to:Currentchat._id,
     })
@@ -30,8 +29,7 @@ const Chat = ({user,Currentchat,socket}) => {
    navigate('/login')
    }
    const handleSendMessage=async (msg)=>{
-     const proxy=process.env.PROXY;
-    await axios.post(`${proxy}/messageadd`,{
+    await axios.post(`/messageadd`,{
       from:user._id,
       to:Currentchat._id,
       message:msg
