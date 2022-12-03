@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 const Register = () => {
+  const proxy=process.env.PROXY;
   const navigate=useNavigate()
   const [keys,setkeys]=useState({
     Username:'',
@@ -16,7 +17,7 @@ const Register = () => {
   e.preventDefault()
     if(validation()){
       const {Username,Email,Password}=keys;
-      const {data}=await axios.post('/register',{
+      const {data}=await axios.post(`${proxy}/register`,{
         Username,
         Email,
         Password
