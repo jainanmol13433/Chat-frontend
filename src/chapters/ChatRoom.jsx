@@ -28,8 +28,7 @@ const ChatRoom = () => {
   
   useEffect(()=>{
     if(user){
-      const proxy=process.env.PROXY;
-      socket.current=io(`${proxy}`,{
+      socket.current=io(`https://chatset.onrender.com`,{
         transports:['polling','websocket'],
       })
       socket.current.on("connect",()=>{
@@ -41,8 +40,7 @@ const ChatRoom = () => {
   useEffect(()=>{
     async function func(){
     if(user){
-      const proxy=process.env.PROXY;
-      const data=await axios.get(`${proxy}/allusers/${user._id}`)
+      const data=await axios.get(`/allusers/${user._id}`)
       setfriends(data.data)
     }
   }
