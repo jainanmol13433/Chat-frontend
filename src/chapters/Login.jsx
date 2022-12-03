@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 const Login = () => {
+  const proxy=process.env.PROXY;
   const navigate=useNavigate()
   const [keys,setkeys]=useState({
     Username:'',
@@ -17,7 +18,7 @@ const Login = () => {
     e.preventDefault()
     if(validation()){
       const {Username,Password}=keys;
-      const {data}=await axios.post('/login',{
+      const {data}=await axios.post(`${proxy}/login`,{
         Username,
         Password
       })
