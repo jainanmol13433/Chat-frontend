@@ -24,7 +24,7 @@ const ChatRoom = () => {
     }
   }
    func()
-},[])
+},[navigate])
   
   useEffect(()=>{
     if(user){
