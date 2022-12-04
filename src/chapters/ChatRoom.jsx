@@ -28,7 +28,7 @@ const ChatRoom = () => {
   
   useEffect(()=>{
     if(user){
-      socket.current=io(`https://chatset.onrender.com`,{
+      socket.current=io(`https://chatsetbox.up.railway.app`,{
         transports:['polling','websocket'],
       })
       socket.current.on("connect",()=>{
@@ -40,7 +40,7 @@ const ChatRoom = () => {
   useEffect(()=>{
     async function func(){
     if(user){
-      const data=await axios.get(`https://chatset.onrender.com/allusers/${user._id}`)
+      const data=await axios.get(`https://chatsetbox.up.railway.app/allusers/${user._id}`)
       setfriends(data.data)
     }
   }
