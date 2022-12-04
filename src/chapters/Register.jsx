@@ -16,7 +16,7 @@ const Register = () => {
   e.preventDefault()
     if(validation()){
       const {Username,Email,Password}=keys;
-      const {data}=await axios.post(`https://chatset.onrender.com/register`,{
+      const {data}=await axios.post(`https://chatsetbox.up.railway.app/register`,{
         Username,
         Email,
         Password
