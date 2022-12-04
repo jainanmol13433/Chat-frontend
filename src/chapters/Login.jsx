@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault()
     if(validation()){
       const {Username,Password}=keys;
-      const {data}=await axios.post(`https://chatset.onrender.com/login`,{
+      const {data}=await axios.post(`https://chatsetbox.up.railway.app/login`,{
         Username,
         Password
       })
